@@ -8,13 +8,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: python:3.8.13-slim
 
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install poetry
+        run: poetry install -v
       - name: Install python packages
-        run: echo Hello from Octo Organization && ls
+        run: poetry install -v
       - name: Run Tests
         run: echo Test
       - name: Linter
