@@ -27,6 +27,6 @@ jobs:
       - name: Run Tests
         run: pytest --cov
       - name: Linter
-        run: echo black
+        run: black -l 120 --check .
       - name: build container
         run: echo Build container
