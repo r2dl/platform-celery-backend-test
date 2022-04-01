@@ -20,7 +20,7 @@ jobs:
           architecture: x64
 
       - name: Install poetry
-        run: pip install poetry
+        run: pip install poetry && poetry config virtualenvs.create false
       - name: Install python packages
         run: poetry install -v
 
