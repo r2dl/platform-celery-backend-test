@@ -8,15 +8,22 @@ on:
 
 jobs:
   build:
-    runs-on: python:3.8.13-slim
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8.13
+          architecture: x64
+
       - name: Install poetry
-        run: poetry install -v
+        run: pip install poetry
       - name: Install python packages
         run: poetry install -v
+
       - name: Run Tests
         run: echo Test
       - name: Linter
