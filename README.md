@@ -12,3 +12,9 @@ base project for backend code
 - Push to the feature branch ```git push origin [FEATURE_BRANCH_NAME]```
 - Create a pull request to [YOUR_BRANCH_NAME] (for guidance see [this tutorial](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#creating-the-pull-request))
 - Ask one or two developers/product owner for review
+
+**Updates to framework**
+- When the framework is updated this will automatically trigger updates in your repo
+- The ```base``` branch of your repo will be updated
+- A pull request will be opened from ```base``` into ```main```
+- Unless you have made changes to the framework code, any merge conflicts should be minimal and we can advise on resolution
