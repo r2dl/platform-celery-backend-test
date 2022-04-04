@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, docker_build ]
   pull_request:
     branches: [ main ]
 
@@ -25,8 +25,8 @@ jobs:
         run: poetry install -v
 
       - name: Run Tests
-        run: pytest --cov
+        run: make test
       - name: Linter
-        run: black -l 120 --check .
+        run: make linter
       - name: build container
-        run: echo Build container
+        run: make build
