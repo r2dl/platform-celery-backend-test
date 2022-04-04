@@ -1,5 +1,5 @@
 build:
-	docker build -t platform-microservice-template .
+	docker build -t $$(basename "`pwd`" | sed 's/[A-Z, -]//g') .
 
 test:
 	pytest --cov
