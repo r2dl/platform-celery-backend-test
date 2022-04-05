@@ -17,7 +17,7 @@ jobs:
     - run: |
         git remote add example1 https://github.com/r2dl/backend-example1.git
         git push --set-upstream example1 main:base
-        gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/backend-framework repo branch main" --base main --head base --repo r2dl/backend-example1
+        gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/backend-framework repo branch main" --base main --head base --repo r2dl/backend-example1 || echo "repo already created"
       env:
         GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
 
@@ -33,6 +33,6 @@ jobs:
     - run: |
         git remote add example2 https://github.com/r2dl/backend-example2.git
         git push --set-upstream example2 main:base
-        gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/backend-framework repo branch main" --base main --head base --repo r2dl/backend-example2
+        gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/backend-framework repo branch main" --base main --head base --repo r2dl/backend-example2 || echo "repo already created"
       env:
         GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
