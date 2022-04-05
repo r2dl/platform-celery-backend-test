@@ -19,5 +19,3 @@ def test_service_delete(client):
     response = client.delete("/")
     assert response.status_code == 202
     assert response.json == {"results": "deleted"}
-
-

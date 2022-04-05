@@ -7,4 +7,3 @@ def get_results():
 
 def delete_results():
     return {"results": "deleted"}
-
