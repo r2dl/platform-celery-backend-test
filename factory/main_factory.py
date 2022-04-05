@@ -3,7 +3,6 @@ from controllers import primary_controller
 from flask_healthz import healthz
 
 
-
 def create_app():
     app = Flask(__name__)
     app.register_blueprint(primary_controller)
