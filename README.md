@@ -18,7 +18,7 @@ This results in a new repo linked to backend-framework CI/CD pipeline, ready for
 
 ___
 
-## Instuctions for developing a microservice:
+## Instructions for developing a microservice:
 - Start from the main branch ```git checkout main```
 - To add a new feature make a new branch from main ```git branch [FEATURE_BRANCH_NAME]```
 - Move to the feature branch ```git checkout [FEATURE_BRANCH_NAME]```
@@ -42,8 +42,8 @@ git push
 
 
 ### Testing
-- To run your tests locally you can use the command `pytest`, however if you have not followed these steps before you will need a
-create virtual environment for the flask server. To do this run the commands:
+- To run your tests locally you can use the command `pytest`, however if you have not followed these steps before you will need to
+create a virtual environment for the flask server. To do this run the commands:
 ```
 python3 -m venv venv
 python3 -m venv venv
@@ -67,4 +67,11 @@ pip install poetry
 - The ```base``` branch of your repo will be updated
 - A pull request will be opened from ```base``` into ```main```
 - Unless you have made changes to the framework code, any merge conflicts should be minimal and we can advise on resolution
+
+---
+
+## Steps for changing Base Code
+- Create new branch from Main to make changes on
+- Create tests to confirm changes are functional
+- Create new request to pull changes made into Base
 
