@@ -1,5 +1,4 @@
-
-###Instructions for making a new microservice
+### Instructions for making a new microservice
 _(FOR USE BY SOFTWARE TEAM)_
 
 The following details creation of a new microservice using our framework repo. 
@@ -19,7 +18,7 @@ This results in a new repo linked to backend-framework CI/CD pipeline, ready for
 
 ___
 
-##Instuctions for developing a microservice:
+## Instructions for developing a microservice:
 - Start from the main branch ```git checkout main```
 - To add a new feature make a new branch from main ```git branch [FEATURE_BRANCH_NAME]```
 - Move to the feature branch ```git checkout [FEATURE_BRANCH_NAME]```
@@ -42,11 +41,34 @@ git push
 - Ask one or two developers/product owner for review
 
 
-###Updates to framework
+### Testing
+- To run your tests locally you can use the command `pytest`, however if you have not followed these steps before you will need to
+create a virtual environment for the flask server. To do this run the commands:
+```
+python3 -m venv venv
+python3 -m venv venv
+```
+or on Windows:
+```
+py -3 -m venv venv
+venv\Scripts\activate
+```
+- If you are in the virtual environment you will see `(venv)` in your terminal, if you do not run the command `python3 -m venv venv` or for  `venv\Scripts\activate`
+
+- Now you can install dependencies via 
+```
+pip install poetry
+ poetry install
+ ```
+- Once these have installed run your tests with the command `pytest`, optionally you can target particular tests or test directories using `pytest [FILE/DIRECTORY_PATH]`
+
+### Updates to framework
 - When the framework is updated this will automatically trigger updates in your repo
 - The ```base``` branch of your repo will be updated
 - A pull request will be opened from ```base``` into ```main```
 - Unless you have made changes to the framework code, any merge conflicts should be minimal and we can advise on resolution
+
+---
 
 ## Steps for changing Base Code
 - Create new branch from Main to make changes on
