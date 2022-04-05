@@ -1,5 +1,5 @@
-from flask import Flask, Response
-from controllers import primary_controller
+from flask import Flask
+from controllers.controllers import primary_controller
 from flask_healthz import healthz
 
 
@@ -9,8 +9,8 @@ def create_app():
     app.register_blueprint(healthz, url_prefix="/healthz")
     app.config.update(
         HEALTHZ={
-            "live": "controllers.liveness",
-            "ready": "controllers.readiness",
+            "live": "controllers.healthz.liveness",
+            "ready": "controllers.healthz.readiness",
         }
     )
     return app
