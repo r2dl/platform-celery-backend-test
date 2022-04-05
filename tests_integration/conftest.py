@@ -1,6 +1,7 @@
+import sys
+sys.path.append('../backend-framework')
 import pytest
-from main_factory import create_app
-
+from factory.main_factory import create_app
 
 @pytest.fixture()
 def app():
