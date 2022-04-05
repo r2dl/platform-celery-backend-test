@@ -1,3 +1,4 @@
+
 ###Instructions for making a new microservice
 _(FOR USE BY SOFTWARE TEAM)_
 
@@ -46,4 +47,9 @@ git push
 - The ```base``` branch of your repo will be updated
 - A pull request will be opened from ```base``` into ```main```
 - Unless you have made changes to the framework code, any merge conflicts should be minimal and we can advise on resolution
+
+## Steps for changing Base Code
+- Create new branch from Main to make changes on
+- Create tests to confirm changes are functional
+- Create new request to pull changes made into Base
 
