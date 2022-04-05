@@ -94,6 +94,17 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-healthz"
+version = "0.0.3"
+description = "A simple module to allow you to easily add health endpoints to your Flask application"
+category = "main"
+optional = false
+python-versions = ">=3.6.1,<4.0.0"
+
+[package.dependencies]
+flask = "<3.0"
+
+[[package]]
 name = "gunicorn"
 version = "20.1.0"
 description = "WSGI HTTP Server for UNIX"
@@ -281,7 +292,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.12"
-content-hash = "ebc03985ca9b0376e62873cf25b52e2ee3d0f93134c4cba79a30614721a4ed5d"
+content-hash = "77e75bda15ad0debed301f77670d033ed256e6aea48415ef803bd537aaafb453"
 
 [metadata.files]
 atomicwrites = [
@@ -371,6 +382,10 @@ coverage = [
 flask = [
     {file = "Flask-2.0.3-py3-none-any.whl", hash = "sha256:59da8a3170004800a2837844bfa84d49b022550616070f7cb1a659682b2e7c9f"},
     {file = "Flask-2.0.3.tar.gz", hash = "sha256:e1120c228ca2f553b470df4a5fa927ab66258467526069981b3eb0a91902687d"},
+]
+flask-healthz = [
+    {file = "flask-healthz-0.0.3.tar.gz", hash = "sha256:d854208b7bde3ef847d069b10f3f8143f61720b3ee5eb10f63d727ff68c90e7f"},
+    {file = "flask_healthz-0.0.3-py3-none-any.whl", hash = "sha256:e01bf4c1d0e0b2538a444ddf63915c7338a4adabe725186cec6553d3f45d1c33"},
 ]
 gunicorn = [
     {file = "gunicorn-20.1.0-py3-none-any.whl", hash = "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e"},
