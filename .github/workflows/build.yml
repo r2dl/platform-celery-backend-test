@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [ run_jobs_in_series1 ]
   pull_request:
     branches: [ main ]
 
