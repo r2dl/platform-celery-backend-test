@@ -2,10 +2,11 @@ name: Pass Changes
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, run_jobs_in_series1 ]
 
 jobs:
   example1:
+    needs: [build]
     runs-on: ubuntu-latest
     if: github.repository == 'r2dl/backend-framework'
 
@@ -22,6 +23,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
 
   example2:
+    needs: [ build ]
     runs-on: ubuntu-latest
     if: github.repository == 'r2dl/backend-framework'
 
