@@ -17,4 +17,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD export WORKERS=`expr $(nproc) \* 2 + 1` && gunicorn main:app -b 0.0.0.0:8000 --workers=$WORKERS --threads=4 --worker-class=gthread
+CMD export WORKERS=`expr $(nproc) \* 2 + 1` && gunicorn main:app -b 0.0.0.0:8080 --workers=$WORKERS --threads=4 --worker-class=gthread
