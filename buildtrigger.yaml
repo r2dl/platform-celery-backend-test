@@ -1,0 +1,44 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '--no-cache'
+      - '-t'
+      - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+      - .
+      - '-f'
+      - Dockerfile
+    id: Build
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+    id: Push
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+    args:
+      - run
+      - deploy
+      - $_MICROSERVICE_NAME-$BRANCH_NAME
+      - '--platform=managed'
+      - '--image=$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+      - >-
+        --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID,$_LABELS
+      - '--region=$_DEPLOY_REGION'
+      - '--quiet'
+    id: Deploy
+    entrypoint: gcloud
+images:
+  - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+options:
+  substitutionOption: ALLOW_LOOSE
+substitutions:
+  _GCR_HOSTNAME: docker.pkg.dev
+  _LABELS: gcb-trigger-id=7305e4c4-3f13-4d52-9f01-45057da30826
+  _TRIGGER_ID: 7305e4c4-3f13-4d52-9f01-45057da30826
+  _PLATFORM: managed
+  _DEPLOY_REGION: us-central1
+  _MICROSERVICE_NAME: dummy
+tags:
+  - gcp-cloud-build-deploy-cloud-run
+  - gcp-cloud-build-deploy-cloud-run-managed
+  - $_MICROSERVICE_NAME-$BRANCH_NAME

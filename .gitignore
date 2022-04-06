@@ -1,3 +1,6 @@
+# visual studio
+.vs
 .idea
+# python stuff
 venv/
 __pycache__/
