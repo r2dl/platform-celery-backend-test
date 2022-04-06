@@ -94,3 +94,19 @@ jobs:
             gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/backend-framework repo branch main" --base main --head base --repo r2dl/backend-example6 || echo "repo already created"
           env:
             GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+
+  backend-example7:
+      needs: build
+      runs-on: ubuntu-latest
+      if: github.repository == 'r2dl/backend-framework' && github.event_name == 'push'
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            token: ${{ secrets.PR_GITHUB_TOKEN }}
+            fetch-depth: 0
+        - run: |
+            git remote add backend-example7 https://github.com/r2dl/backend-example7.git
+            git push --set-upstream backend-example7 main:base
+            gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/backend-framework repo branch main" --base main --head base --repo r2dl/backend-example7 || echo "repo already created"
+          env:
+            GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
