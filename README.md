@@ -74,4 +74,3 @@ pip install poetry
 - Create new branch from Main to make changes on
 - Create tests to confirm changes are functional
 - Create new request to pull changes made into Base
-
