@@ -1,9 +1,10 @@
-from main_service.models import example_model
-
-
 def get_results():
-    return {"results": example_model()}
+    return {"results": "example_get"}
+
+
+def post_results():
+    return {"results": "example_post"}
 
 
 def delete_results():
-    return {"results": "deleted"}
+    return {"results": "example_delete"}
