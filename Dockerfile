@@ -15,6 +15,6 @@ ENV FLASK_APP=main.py
 
 COPY . .
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD export WORKERS=`expr $(nproc) \* 2 + 1` && gunicorn main:app -b 0.0.0.0:8080 --workers=$WORKERS --threads=4 --worker-class=gthread
