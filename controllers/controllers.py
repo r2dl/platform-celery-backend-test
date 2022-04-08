@@ -31,9 +31,7 @@ def celery_create_task():
 def celery_status():
     id = request.args.get("id")
     task_result = AsyncResult(id)
-    result = {"task_id": id,
-              "status": task_result.status,
-              "result": task_result.result}
+    result = {"task_id": id, "status": task_result.status, "result": task_result.result}
     return jsonify(result), 200
 
 
@@ -42,12 +40,7 @@ def get_celery_tasks():
     keys = r.keys()
     out = []
     for key in keys:
-        out.append(key.decode("utf-8"))
+        this_key = key.decode("utf-8")
+        if this_key.startswith("celery"):
+            out.append(this_key)
     return jsonify({"tasks": out}), 200
-    
-
-
-
-    
-    
-    
