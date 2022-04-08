@@ -1,6 +1,11 @@
 import os
 import time
 from celery import Celery
+from main_service.main_service_functions import (
+    get_results,
+    delete_results,
+    post_results,
+)
 
 
 celery = Celery(__name__)
@@ -9,7 +14,8 @@ celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND", "redis://lo
 
 
 @celery.task(name="create_task")
-def create_task(task_type):
-    time.sleep(int(task_type) * 10)
-    return "HI"
+def create_task(task_data):
+    # time.sleep(int(task_type) * 10)
+    payload = post_results(task_data)
+    return payload
 

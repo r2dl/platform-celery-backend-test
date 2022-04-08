@@ -20,11 +20,11 @@ def health_check():
 
 @primary_controller.route("/celery", methods=["POST"])
 def celery_create_task():
-    content = request.json
-    task_type = content["type"]
+    # content = request.json
+    # task_type = content["type"]
     # task_name = content["name"]
-    task = create_task.delay(int(task_type))
-    return jsonify({"task_id": task.id}), 202
+    task = create_task.delay(request.json)
+    return jsonify({"result_id": task.id}), 202
 
 
 @primary_controller.route("/get_status", methods=["GET"])
