@@ -4,7 +4,6 @@ import pulp
 import time
 
 
-
 def get_results(body):
     if body is None:
         body = {}
@@ -14,7 +13,6 @@ def get_results(body):
 
 
 def post_results(body):
-    time.sleep(100)
     return solve(body)
 
 
