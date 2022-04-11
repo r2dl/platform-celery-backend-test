@@ -5,6 +5,7 @@ def test_service_get(client):
     response = client.get("/")
     assert response.status_code == 200
 
+
 #
 # def test_service_post(client):
 #     data = {"example": "post"}
