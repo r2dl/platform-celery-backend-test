@@ -5,7 +5,7 @@ from main_service.main_service_functions import (
     delete_results,
     post_results,
 )
-from celery.tasks import create_task, celery
+from tasks import create_task, celery
 from celery.result import AsyncResult
 import redis
 

@@ -1,6 +1,6 @@
 import json
 from flask import Response, Blueprint, request, jsonify
-from celery.tasks import create_task, celery
+from tasks import create_task, celery
 from celery.result import AsyncResult
 import redis
 
