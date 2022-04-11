@@ -100,7 +100,7 @@ def solve(data):
 
     for v in model.variables():
         if v.varValue:
-            supplier, part = [x.replace("_", " ") for x in v.name.split(';_')]
+            supplier, part = [x.replace("_", " ") for x in v.name.split(";_")]
             out_data.append({"supplier": supplier, "part": part, "quantity": v.varValue})
 
     return out_data

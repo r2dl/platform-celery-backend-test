@@ -12,6 +12,7 @@ import redis
 
 main_service_queue = Blueprint("main_service_queue", __name__)
 
+
 @main_service_queue.route("/queue_task", methods=["POST"])
 def queue_task():
     task = create_task.delay(request.json)
@@ -20,6 +21,7 @@ def queue_task():
         status=202,
         mimetype="application/json",
     )
+
 
 @main_service_queue.route("/status", methods=["GET"])
 def status():
@@ -30,6 +32,7 @@ def status():
         status=202,
         mimetype="application/json",
     )
+
 
 @main_service_queue.route("/all_tasks", methods=["GET"])
 def all_tasks():

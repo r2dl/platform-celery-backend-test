@@ -16,4 +16,3 @@ def health_check():
         status=200,
         mimetype="application/json",
     )
-

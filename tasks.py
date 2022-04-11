@@ -17,4 +17,3 @@ celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND", "redis://lo
 def create_task(task_data):
     payload = post_results(task_data)
     return payload
-
