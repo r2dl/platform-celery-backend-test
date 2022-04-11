@@ -11,9 +11,9 @@ def get_results(body):
     no_parts = body.get("no_parts", 4)
     return generate_data(no_suppliers=no_suppliers, no_parts=no_parts)
 
-
-def post_results(body):
-    return solve(body)
+#
+# def post_results(body):
+#     return solve(body)
 
 
 def delete_results():
